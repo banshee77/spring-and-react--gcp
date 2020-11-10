@@ -22,18 +22,18 @@ steps:
 # Step 4: Running maven tests
   - name: maven:3-jdk-8
     entrypoint: mvn
-    dir: ''
+    dir: 'backend'
     args: ["test"]
 
 # Step 5: Running **mvn clean install** and skipping test cases
   - name: maven:3-jdk-8
     entrypoint: mvn
-    dir: ''
+    dir: 'backend'
     args: ["clean", "install", "-Dmaven.test.skip=true"]
 
 # Step 6: Creating docker image using docker file present in server folder
   - name: docker
-    dir: ''
+    dir: 'backend'
     args: ["build", "-t", "gcr.io/spring-and-react-app/backend", "."]
 
 # Step 7: pushing docker image to GCP Container Registry
@@ -42,7 +42,7 @@ steps:
 
 # Step 8: Deploying this image using app.yaml present in **server/src/main/appengine** to GCP **APP ENGINE**
   - name: 'gcr.io/cloud-builders/gcloud'
-    dir: 'src/main/appengine'
+    dir: 'backend/src/main/appengine'
     args: ['app', 'deploy', "--image-url=gcr.io/spring-and-react-app/backend"]
     timeout: "30m0s"
 
