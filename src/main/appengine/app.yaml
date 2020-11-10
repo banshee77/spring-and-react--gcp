@@ -1,0 +1,7 @@
+runtime: nodejs12
+env: flex
+service: backend
+instance_class: F1
+handlers:
+- url: /.*
+  script: this field is required, but ignored
