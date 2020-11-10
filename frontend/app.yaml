@@ -1,4 +1,4 @@
-runtime: nodejs12
+runtime: nodejs
 service: default
 env: flex
 instance_class: F1
