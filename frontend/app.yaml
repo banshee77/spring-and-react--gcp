@@ -1,8 +1,6 @@
-runtime: nodejs
+runtime: nodejs12
 service: default
-env: flex
 instance_class: F1
-threadsafe: true
 handlers:
   - url: /
     static_files: build/index.html
