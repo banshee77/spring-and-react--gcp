@@ -1,5 +1,10 @@
 # below are the spteps executed by trigger
 steps:
+# App Engine
+# Step 0: Create an App Engine app within the current Google Cloud Project.
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'create']
+
 # frontend deployment
 # Step 1: For installing dependencies
   - name: "gcr.io/cloud-builders/npm"
