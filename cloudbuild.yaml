@@ -3,7 +3,7 @@ steps:
 # App Engine
 # Step 0: Create an App Engine app within the current Google Cloud Project.
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['app', 'create']
+    args: ['app', 'create','--region=europe-west6']
 
 # frontend deployment
 # Step 1: For installing dependencies
